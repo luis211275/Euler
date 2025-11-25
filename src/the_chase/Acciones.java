@@ -24,6 +24,7 @@ public class Acciones {
         this.random = random;
     }
 
+
     public int getNumJugadores() {
         return numJugadores;
     }
