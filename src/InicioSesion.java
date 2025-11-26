@@ -61,7 +61,7 @@ public class InicioSesion {
                     b = c;
                 }
                 System.out.println(suma2);
-
+                break;
 
 
 
@@ -88,6 +88,67 @@ public class InicioSesion {
                     FactorMayor = num3;
                 }
                 System.out.println("El mayor factor primo es " + FactorMayor);
+                break;
+
+
+            case 5:
+                System.out.println("===Divisibles del 1 al 20===");
+
+
+                long num = 20;
+
+                while (true){
+                    boolean div = true;
+
+                    for (int i = 1; i <= 20 ; i++) {
+
+                        if (num % i != 0) {
+                            div = false;
+                            break;
+                        }
+                    }
+                        if (div) {
+                            System.out.println("El numero " + num + " es divisible entre todos los numeros del 1 al 20");
+                            break;
+                        }
+                        num++;
+                }
+                break;
+
+
+
+            case 6:
+                System.out.println("===Suma de cuadrados del 1 al 100===");
+                long sum = 0;
+                long sumacuadrado = 0;
+
+                for (int i = 1; i <= 100 ; i++) {
+
+                    //suma de cuadrados
+                    sum += i;
+                    sumacuadrado += i * i;
+                }
+                //cuadrado de la suma
+                long cuadradoSuma = sum * sum;
+                // resta de las dos
+                long resta = cuadradoSuma - sumacuadrado;
+
+                System.out.println("La diferencia entre la suma de cuadrado y el cuadrado de la suma es " + resta);
+
+
+
+
+//meter un usuario con un password cn minimo una MAYUS un un numero y un simbolo signo 8 caracteres, si no se cumble devolver info, otro login y compararlo login debe ser un correo gmai/hotmail, cuando pida el nombre, solo letras no numeros, si aciertan se les devuelve el nombre de usuario
+
+
+
+
+
+
+
+            case 7:
+                System.out.println("===Resta de cuadrados del 1 al 100===");
+
         }
     }
 }

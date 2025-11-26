@@ -1,19 +1,17 @@
 package the_chase;
 import java.util.Random;
-import java.util.random.RandomGenerator;
 
 public class Acciones {
-    private static MyScanner sc = new MyScanner();
     private Random random;
     private int numJugadores;
-    private int dado1;
-    private int dado2;
+    private int pos1;
+    private int pos2;
 
     public Acciones(int numJugadores) {
         this.numJugadores = numJugadores;
         this.random = new Random();
-        this.dado1 = 0;
-        this.dado2 = numJugadores/2;
+        this.pos1 = 0;
+        this.pos2 = numJugadores/2;
     }
 
     public Random getRandom() {
@@ -33,20 +31,21 @@ public class Acciones {
         this.numJugadores = numJugadores;
     }
 
-    public int getDado1() {
-        return dado1;
+
+    public int getpos1() {
+        return pos1;
     }
 
     public void setDado1(int dado1) {
-        this.dado1 = dado1;
+        this.pos1 = dado1;
     }
 
     public int getDado2() {
-        return dado2;
+        return pos2;
     }
 
     public void setDado2(int dado2) {
-        this.dado2 = dado2;
+        this.pos2 = dado2;
     }
 
 
@@ -69,9 +68,9 @@ public class Acciones {
 
 
     public boolean jugarRonda(){
-        dado1 = TirarDado(dado1);
-        dado2 = TirarDado(dado2);
-        return dado1 == dado2;
+        pos1 = TirarDado(pos1);
+        pos2 = TirarDado(pos2);
+        return pos1 == pos2;
     }
 
 
@@ -84,5 +83,15 @@ public class Acciones {
                 return rondas;
             }
         }
+    }
+
+
+    public double simulacion(int simular) {
+        int numRondas = 0;
+        for(int i = 0; i < simular; i++){
+            Acciones juego = new Acciones(numJugadores);
+            numRondas+=juego.Jugar();
+        }
+        return (double) numRondas/simular;
     }
 }
