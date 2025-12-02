@@ -1,4 +1,4 @@
-package usuario_contraseña;
+package caja_registradora;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -85,7 +85,7 @@ public class MyScanner {
         return texto;
     }
 
-    public String pideContraseña(String mensaje) {
+    public String pideContraseña (String mensaje) {
         String texto;
         boolean Mayus;
         boolean Special;
@@ -93,38 +93,15 @@ public class MyScanner {
         do {
             System.out.println("Introduce la contraseña");
             texto = sc.nextLine();
-            Mayus = texto.matches(".*[A-Z].*");
-            Special = texto.matches(".*[0#~%&$?¿!;].*");
+            Mayus = texto.matches ("[A-Z] + ");
+            Special = texto.matches("[@#~%&$?¿!¡] + ");
             if (texto.isEmpty()) {
                 System.out.println("Error: La contraseña no puede estar vacia.");
-            } else if (!Special && !Mayus) {
+            } if (!Special || !Mayus) {
                 System.out.println("Error: Debes introducir un numero especial y una mayuscula");
-            } else if (Special && Mayus) {
-                System.out.println("Parametros aceptados");
-                valido = true;
             }
-        } while (!valido);
+        }while (valido);
         return texto;
-    }
-
-    public String PedirEmail(String introduceElEmail) {
-        String texto1;
-        boolean valido = false;
-
-
-        do {
-            System.out.print("Introduce el email del usuario: ");
-            texto1 = sc.nextLine();
-            if (texto1.equals("")) {
-                System.out.println("Debes introducir algun valor al email");
-            } else if (texto1.contains("@gmail.com") || texto1.contains("@hotmail.com")) {
-                System.out.println("Correo valido");
-                valido = true;
-            } else {
-                System.out.println("No has introducido ni @gmail.com NI @hotmail.com");
-            }
-        } while (!valido);
-        return texto1;
     }
 
     public void cerrar() {
@@ -132,4 +109,3 @@ public class MyScanner {
     }
 
 }
-

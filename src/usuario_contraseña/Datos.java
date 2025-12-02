@@ -3,7 +3,6 @@ package usuario_contraseña;
 import java.util.Scanner;
 
 public class Datos {
-    Scanner sc = new Scanner(System.in);
 
     private String nombre;
     private String gmail;
@@ -38,14 +37,4 @@ public class Datos {
         return contraseña;
     }
 
-
-
-    @Override
-    public String toString() {
-        return "Datos{" +
-                "nombre='" + nombre + '\'' +
-                ", gmail='" + gmail + '\'' +
-                ", contraseña='" + contraseña + '\'' +
-                '}';
-    }
 }
